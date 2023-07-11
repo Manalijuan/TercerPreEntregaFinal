@@ -19,4 +19,4 @@ def administrativoFormulario(request):
                                       request.POST["Teléfono"])
         administrativo.save()
         return render(request, "inicio.html")
-    return render(request,"AppManali/administrativoFormulario")
+    return render(request,"formulario.html")
