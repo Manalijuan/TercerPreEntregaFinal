@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulario de Paciente</title>
+  </head>
+  <body>
+    {% if miformulario.errors %}
+    <p style="color: brown">estan mal los datos</p>
+    {% endif %}
+    <form action="" method="POST">
+      {% csrf_token %}
+      <table>
+        {{miformulario.as_table}}
+      </table>
+      <input type="submit" value="Guardar" />
+    </form>
+  </body>
+</html>

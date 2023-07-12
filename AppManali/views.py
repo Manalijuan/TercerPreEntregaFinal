@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
+from AppManali.forms import AdministrativoFormulario
 # Create your views here.
 def inicio(request):
     return render(request, "AppManali/inicio.html")
@@ -11,12 +12,16 @@ def doctor(request):
 def paciente(request):
     return render(request, "AppManali/paciente.html")
 def administrativoFormulario(request):
+
     if request.method=="POST":
-        administrativo=Administrativo(request.POST["Nombre"],
-                                      request.POST["Edad"],
-                                      request.POST["DNI"],
-                                      request.POST["Dirección"],
-                                      request.POST["Teléfono"])
+        miformulario=AdministrativoFormulario(request.POST)
+        print(miformulario)
+        if miformulario.is_valid():
+            informacion=miformulario.cleaned_data
+
+        administrativo=Administrativo(nombre=informacion["nombre"],apellido=informacion["apellido"])
         administrativo.save()
-        return render(request, "inicio.html")
-    return render(request,"formulario.html")
+        return render(request, "AppManali/inicio.html")
+    else:
+        miformulario=AdministrativoFormulario()
+    return render(request, "AppManali/administrativoFormulario.html",{"miformulario":miformulario})
