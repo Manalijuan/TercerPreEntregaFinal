@@ -33,17 +33,7 @@
       rel="stylesheet"
       href="{% static 'AppManali/assets/css/lightbox.css' %}"
     />
-    <!--
-    
-TemplateMo 557 Grad School
-
-https://templatemo.com/tm-557-grad-school
-
--->
-  </head>
-
   <body>
-    <!--header-->
     <header class="main-header clearfix" role="header">
       <div class="logo">
         <a href="#"><em>Clinica </em>Santa Fe</a>
@@ -80,12 +70,15 @@ https://templatemo.com/tm-557-grad-school
         </div>
       </div>
     </section>
+    {% if miformulario.errors %}
+    <p style="color: brown">estan mal los datos</p>
+    {% endif %}
+    <form action="" method="POST">
+      {% csrf_token %}
+      <table>
+        {{ miformulario.as_table }}
+      </table>
+      <input type="submit" value="Guardar" />
+    </form>
   </body>
-  {% block body %} {% endblock %}
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
 </html>

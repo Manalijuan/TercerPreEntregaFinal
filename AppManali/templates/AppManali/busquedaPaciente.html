@@ -82,10 +82,33 @@ https://templatemo.com/tm-557-grad-school
     </section>
   </body>
   {% block body %} {% endblock %}
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
 </html>
+
+<style>
+  .color-button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    outline: none;
+    background-image: linear-gradient(
+      to right,
+      #ff8000,
+      #ff4d00
+    ); /* Degradado de rojo a azul */
+  }
+
+  h1 {
+    color: #080208; /* Color del título */
+  }
+</style>
+
+<form action="/AppManali/buscar/" method="GET">
+  <h1>Buscando al Paciente</h1>
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre" required />
+  <button type="submit" class="color-button">Buscar</button>
+</form>
