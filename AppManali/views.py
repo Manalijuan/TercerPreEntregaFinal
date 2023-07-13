@@ -5,15 +5,14 @@ from AppManali.forms import *
 # Create your views here.
 def inicio(request):
     return render(request, "AppManali/inicio.html")
-#def administrativo(request):
-   # return render (request, "AppManali/administrativo.html")
+def administrativo(request):
+   return render (request, "AppManali/administrativoFormulario.html")
 def doctor(request):
     return render(request, "AppManali/doctor.html")
 def paciente(request):
     return render(request, "AppManali/busquedaPaciente.html")
 
-def administrativo(request):
-
+def administrativoFormulario(request):
     if request.method=="POST":
         miformulario=AdministrativoFormulario(request.POST)
         print(miformulario)
@@ -25,7 +24,7 @@ def administrativo(request):
         return render(request, "AppManali/inicio.html")
     else:
         miformulario=AdministrativoFormulario()
-    return render(request, "AppManali/administrativoFormulario.html",{"miformulario":miformulario})
+    return render(request, "AppManali/administrativo.html",{"miformulario":miformulario})
 
 def pacienteFormulario(request):
     if request.method=="POST":
