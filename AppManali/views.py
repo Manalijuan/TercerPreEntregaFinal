@@ -19,12 +19,12 @@ def administrativoFormulario(request):
         if miformulario.is_valid():
             informacion=miformulario.cleaned_data
 
-        administrativo=Administrativo(nombre=informacion["nombre"],apellido=informacion["apellido"])
-        administrativo.save()
-        return render(request, "AppManali/inicio.html")
+            administrativo=Administrativo(nombre=informacion["nombre"],apellido=informacion["apellido"])
+            administrativo.save()
+            return render(request, "AppManali/inicio.html")
     else:
         miformulario=AdministrativoFormulario()
-    return render(request, "AppManali/administrativo.html",{"miformulario":miformulario})
+        return render(request, "AppManali/administrativoFormulario.html",{"miformulario":miformulario})
 
 def pacienteFormulario(request):
     if request.method=="POST":
