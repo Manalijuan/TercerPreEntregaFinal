@@ -1,0 +1,13 @@
+{% extends "AppManali/padre.html" %} {% block body %} {% if miformulario %} {%
+if miformulario.errors %}
+<h1>sdsadas</h1>
+<p style="color: brown">estan mal los datos</p>
+{% endif %}
+<form action="" method="POST">
+  {% csrf_token %}
+  <table>
+    {{ miformulario.as_table }}
+  </table>
+  <input type="submit" , value="Enviar" />
+</form>
+{% endblock %}
